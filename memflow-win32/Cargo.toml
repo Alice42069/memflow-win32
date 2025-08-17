@@ -10,8 +10,8 @@ readme = "../README.md"
 homepage = "https://memflow.io"
 repository = "https://github.com/memflow/memflow-win32"
 license = "MIT"
-keywords = [ "memflow", "introspection", "memory", "dma" ]
-categories = [ "api-bindings", "memory-management", "os" ]
+keywords = ["memflow", "introspection", "memory", "dma"]
+categories = ["api-bindings", "memory-management", "os"]
 
 [badges]
 maintenance = { status = "actively-developed" }
@@ -26,7 +26,9 @@ log = { version = "0.4", default-features = false }
 pelite = { version = "0.10", default-features = false }
 widestring = { version = "1.1", default-features = false, features = ["alloc"] }
 no-std-compat = { version = "0.4", features = ["alloc"] }
-serde = { version = "1.0", default-features = false, optional = true, features = ["derive"] }
+serde = { version = "1.0", default-features = false, optional = true, features = [
+    "derive",
+] }
 memflow-win32-defs = { version = "0.2", path = "../memflow-win32-defs", default-features = false }
 muddy = "0.3.2"
 
@@ -42,16 +44,36 @@ toml = "0.8"
 
 [build-dependencies]
 toml = "0.8"
-serde = { version = "1.0", default-features = false, features = ["derive", "alloc"] }
-memflow = { version = "0.2", default-features = false }
-memflow-win32-defs = { version = "0.2", path = "../memflow-win32-defs", features = ["symstore"] }
+serde = { version = "1.0", default-features = false, features = [
+    "derive",
+    "alloc",
+] }
+memflow = { git = "https://github.com/memflow/memflow", default-features = false }
+memflow-win32-defs = { version = "0.2", path = "../memflow-win32-defs", features = [
+    "symstore",
+] }
 
 [features]
-default = ["std", "serde_derive", "embed_offsets", "symstore", "download_progress", "regex", "memflow/default", "plugins"]
+default = [
+    "std",
+    "serde_derive",
+    "embed_offsets",
+    "symstore",
+    "download_progress",
+    "regex",
+    "memflow/default",
+    "plugins",
+]
 std = ["no-std-compat/std", "memflow/std", "pelite/std"]
 plugins = ["memflow/plugins"]
 embed_offsets = ["serde", "memflow/serde_derive", "memflow-win32-defs/serde"]
-serde_derive = ["serde", "memflow/serde_derive", "pelite/std", "pelite/serde", "memflow-win32-defs/serde"]
+serde_derive = [
+    "serde",
+    "memflow/serde_derive",
+    "pelite/std",
+    "pelite/serde",
+    "memflow-win32-defs/serde",
+]
 symstore = ["memflow-win32-defs/symstore"]
 download_progress = ["memflow-win32-defs/download_progress"]
 

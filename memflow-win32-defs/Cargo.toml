@@ -9,14 +9,16 @@ readme = "../README.md"
 homepage = "https://memflow.io"
 repository = "https://github.com/memflow/memflow-win32"
 license = "MIT"
-keywords = [ "memflow", "introspection", "memory", "dma" ]
-categories = [ "api-bindings", "memory-management", "os" ]
+keywords = ["memflow", "introspection", "memory", "dma"]
+categories = ["api-bindings", "memory-management", "os"]
 
 [dependencies]
 memflow = { git = "https://github.com/memflow/memflow", default-features = false }
 log = { version = "0.4", default-features = false }
 no-std-compat = { version = "0.4", features = ["alloc"] }
-serde = { version = "1.0", default-features = false, optional = true, features = ["derive"] }
+serde = { version = "1.0", default-features = false, optional = true, features = [
+    "derive",
+] }
 
 # symbolstore
 dirs = { version = "5.0", optional = true }
